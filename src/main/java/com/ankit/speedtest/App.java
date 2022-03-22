@@ -3,7 +3,8 @@ package com.ankit.speedtest;
 public class App {
     public static void main( String[] args ) {
 		String url = "https://www.commonfloor.com/listing-search?city=Bangalore&search_intent=sale";
-		Boolean[] TestDrivers = new Boolean[]{ false, false, true, true, false, false, false};
+	    	// to disable tests for a certain driver, set its TestDrivers value to false
+		Boolean[] TestDrivers = new Boolean[]{ true, true, true, true, true, true, true};
 		Result[] results = new Result[7];
 		int i = 0;
 
