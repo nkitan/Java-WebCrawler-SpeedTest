@@ -1,5 +1,7 @@
 package com.ankit.speedtest;
 
+import java.net.Inet4Address;
+import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -21,9 +23,19 @@ public class ChromeProxy {
 		
 		// start proxy
 		proxyServer.start(0);
-
+		
 		// get selenium proxy object
 		Proxy seleniumProxy = ClientUtil.createSeleniumProxy(proxyServer);
+		
+		// Set up proxy
+        String hostIp;
+		try {
+			hostIp = Inet4Address.getLocalHost().getHostAddress();
+	        seleniumProxy.setHttpProxy(hostIp + ":" + proxyServer.getPort());
+	        seleniumProxy.setSslProxy(hostIp + ":" + proxyServer.getPort());
+		} catch (UnknownHostException e) {
+			e.printStackTrace();
+		}
 		
 		// Add blacklist entries
 		ArrayList<BlacklistEntry> blackListEntries = new ArrayList<BlacklistEntry>();
@@ -49,8 +61,7 @@ public class ChromeProxy {
 			
 		chromeOptions.setCapability("chrome.switches", Arrays.asList("--ignore-certificate-errors"));
 		System.setProperty("webdriver.chrome.driver", "/home/notroot/projects/Hotflats_BitBucket/speedtest/speedtest/drivers/chromedriver");
-		WebDriver driver = new ChromeDriver(chromeOptions);
-		return driver;
+		return new ChromeDriver(chromeOptions);
 	}
 
 	ArrayList<BlacklistEntry> getBlacklistEntries(String blackListTypes) {
