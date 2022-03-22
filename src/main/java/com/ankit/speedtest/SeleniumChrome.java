@@ -20,7 +20,7 @@ public class SeleniumChrome extends TestWebDriver {
 			if(useProxy) {
 				ChromeProxy proxy = new ChromeProxy();
 				super.id += "[Proxy]";
-				this.driver = proxy.getDriver("default,commonfloor.com", headless);
+				super.driver = proxy.getDriver("default,commonfloor.com", headless);
 			} else {
 				this.driver = new ChromeDriver(this.options);
 			}

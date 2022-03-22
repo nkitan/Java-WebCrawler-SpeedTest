@@ -6,7 +6,7 @@ import com.gargoylesoftware.htmlunit.WebClient;
 
 public class HTMLUnit extends TestWebDriver {
 	HTMLUnit(Boolean js, String url){
-		this.driver = new HtmlUnitDriver(js) {
+		super.driver = new HtmlUnitDriver(js) {
 	        @Override
 	        protected WebClient newWebClient(BrowserVersion version) {
 	            WebClient webClient = super.newWebClient(version);
