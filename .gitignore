@@ -13,6 +13,7 @@ TEST*.xml
 .flv
 .mov
 .wmv
+.txt
 .classpath
 .project
 .settings/

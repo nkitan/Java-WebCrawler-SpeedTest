@@ -11,6 +11,10 @@ public class Result {
 		this.stats = stats;
 	}
 	
+	public String toPrint() {
+		return this.id + ":" + this.stats;
+	}
+	
 	public String toString() {
 		return this.id + "- \n RESULT: " + this.result + "\n " + this.stats;
 	}

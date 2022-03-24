@@ -1,6 +1,26 @@
 package com.ankit.speedtest;
 
+import java.io.FileWriter;
+import java.io.IOException;
+
 public class App {
+	public static void writeToFile(String filename, Result[] results) {
+	    try {
+		     FileWriter file = new FileWriter(filename);
+		      
+		     for(Result result: results) {
+			    file.write(result != null ? result.toPrint() : "");
+		     }
+		      
+		     file.close();
+		     System.out.println("Result Written in " + filename);
+		     
+		   } catch (IOException e) {
+		     System.out.println("error occured");
+		     e.printStackTrace();
+		   }
+	  }
+	  
     public static void main( String[] args ) {
 		String url = "https://www.commonfloor.com/listing-search?city=Bangalore&search_intent=sale";
 	    	// to disable tests for a certain driver, set its TestDrivers value to false
@@ -57,10 +77,8 @@ public class App {
 			results[i] = new Result(jsoup.toString(), jsoup.getResult(), jsoup.getStats());
 			i++;
 		}
-
 		
-		for(Result result: results) {
-			System.out.println(result != null ? result : "");
-		}
+		String filename = System.currentTimeMillis() + ".txt";
+		writeToFile(filename, results);
     }
 }

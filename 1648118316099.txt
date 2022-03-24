@@ -1,0 +1,15 @@
+[Selenium Chrome]:Time Elapsed: 33s
+PROC: 0.0%
+AVG: 107.0%[Selenium Chrome][Headless]:Time Elapsed: 84s
+PROC: 0.08799161607972635%
+AVG: 333.0%[Selenium Chrome][Proxy]:Time Elapsed: 0s
+PROC: 3.5398230088495577%
+AVG: 333.0%[Selenium Chrome][Headless][Proxy]:Time Elapsed: 0s
+PROC: 3.696098562628337%
+AVG: 333.0%[HTMLUnit JS]:Time Elapsed: 50s
+PROC: 7.232429279673375%
+AVG: 219.0%[HTMLUnit]:Time Elapsed: 24s
+PROC: 1.1234793396974188%
+AVG: 144.0%[JSoup]:Time Elapsed: 24s
+PROC: 0.5640176973217602%
+AVG: 103.0%
